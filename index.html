@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klavye Hızı Testi</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'><text y='32' font-size='32'>☕</text></svg>">
+</head>
+<body>
+    <div class="settings-panel">
+        <label class="theme-toggle">
+            <input type="checkbox" id="theme-toggle">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>Klavye Hızı Testi</h1>
+        </header>
+        
+        <div class="options">
+            <div class="option-group">
+                <label for="time-select">Test Süresi:</label>
+                <select id="time-select">
+                    <option value="30">30 saniye</option>
+                    <option value="60" selected>1 dakika</option>
+                    <option value="120">2 dakika</option>
+                    <option value="300">5 dakika</option>
+                </select>
+            </div>
+            
+            <div class="option-group">
+                <label for="difficulty-select">Zorluk:</label>
+                <select id="difficulty-select">
+                    <option value="easy">Kolay</option>
+                    <option value="medium" selected>Orta</option>
+                    <option value="hard">Zor</option>
+                </select>
+            </div>
+            
+            <div class="option-group">
+                <label for="language-select">Dil:</label>
+                <select id="language-select">
+                    <option value="turkish" selected>Türkçe</option>
+                    <option value="english">İngilizce</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+        </div>
+        
+        <div class="stats">
+            <div class="stat-box">
+                <h2>WPM</h2>
+                <p id="wpm">0</p>
+            </div>
+            <div class="stat-box">
+                <h2>CPM</h2>
+                <p id="cpm">0</p>
+            </div>
+            <div class="stat-box">
+                <h2>Doğruluk</h2>
+                <p id="accuracy">0%</p>
+            </div>
+            <div class="stat-box">
+                <h2>Süre</h2>
+                <p id="timer">60</p>
+            </div>
+            <div class="stat-box">
+                <h2>Hatalar</h2>
+                <p id="errors">0</p>
+            </div>
+        </div>
+        
+        <div class="text-display" id="text-display"></div>
+        
+        <textarea class="input-area" id="input-area" placeholder="Test başladığında burada yazın..." disabled></textarea>
+        
+        <div class="controls">
+            <button id="start-btn">Başla</button>
+            <button id="reset-btn">Sıfırla</button>
+            <button id="results-btn" disabled>Sonuçlar</button>
+            <button id="save-btn" disabled>Kaydet</button>
+        </div>
+
+        <div class="history" id="history-container" style="display: none;">
+            <h2>Geçmiş Sonuçlar</h2>
+            <div class="history-list" id="history-list"></div>
+        </div>
+    </div>
+
+    <div class="modal" id="results-modal">
+        <div class="modal-content">
+            <span class="modal-close" id="close-modal">&times;</span>
+            <h2>Test Sonuçları</h2>
+            <div class="stats">
+                <div class="stat-box">
+                    <h2>WPM</h2>
+                    <p id="final-wpm">0</p>
+                </div>
+                <div class="stat-box">
+                    <h2>CPM</h2>
+                    <p id="final-cpm">0</p>
+                </div>
+                <div class="stat-box">
+                    <h2>Doğruluk</h2>
+                    <p id="final-accuracy">0%</p>
+                </div>
+                <div class="stat-box">
+                    <h2>Toplam Kelime</h2>
+                    <p id="final-words">0</p>
+                </div>
+                <div class="stat-box">
+                    <h2>Hatalar</h2>
+                    <p id="final-errors">0</p>
+                </div>
+            </div>
+
+            <h3>Performans Grafiği</h3>
+            <div class="results-chart" id="results-chart"></div>
+            <div class="chart-legend">
+                <div>WPM</div>
+                <div>Doğruluk (%)</div>
+                <div>Hatalar</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
